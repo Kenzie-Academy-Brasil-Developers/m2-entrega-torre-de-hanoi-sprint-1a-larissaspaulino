@@ -1,0 +1,41 @@
+main {
+  width: 80%;
+  border: 1px solid black;
+  margin: 10px auto;
+  display: flex;
+}
+section {
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+}
+#torre1 {
+  width: 33.3%;
+  border: 1px solid pink;
+}
+#torre2 {
+  width: 33.3%;
+  border: 1px solid yellow;
+}
+#torre3 {
+  width: 33.3%;
+  border: 1px solid green;
+}
+#disco1 {
+  width: 50%;
+  height: 50px;
+  background-color: red;
+  border-radius: 10px;
+}
+#disco2 {
+  width: 75%;
+  height: 50px;
+  background-color: turquoise;
+  border-radius: 10px;
+}
+#disco3 {
+  width: 100%;
+  height: 50px;
+  background-color: black;
+  border-radius: 10px;
+}
