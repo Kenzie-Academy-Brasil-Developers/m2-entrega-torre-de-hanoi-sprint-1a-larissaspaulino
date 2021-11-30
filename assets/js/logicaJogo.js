@@ -1,8 +1,10 @@
 const containerTorres = document.getElementById('container')
 
-const displayContadorMov = document.createElement('section')
-displayContadorMov.innerText = 'Contador de Movimento: '
-containerTorres.appendChild(displayContadorMov)
+const topo = document.getElementById('topo')
+
+const displayContadorMov = document.createElement('aside')
+displayContadorMov.innerText = 'Contador de Movimento: 0'
+topo.appendChild(displayContadorMov)
 
 let torreUm = document.getElementById('torre1')
 let torreDois = document.getElementById('torre2')
@@ -49,6 +51,7 @@ function torreOrigemouDestino() {
         moverDiscoDeDiv()
         checkWin()
     }
+    
 }
 
 function moverDiscoDeDiv () {
@@ -64,9 +67,10 @@ function checkWin () {
     let discoIdTres = torreDestino.firstElementChild.getAttribute('id') //maior
     let discoIdUm = torreDestino.lastElementChild.getAttribute('id')
     if (contadorChildElem === 3 && discoIdTres === 'disco3' && discoIdUm === 'disco1' && torreDestino.getAttribute('id') !== 'torre1') {
-        alert('Você venceu!!!')
+        
         contadorClique = 0 // funcao reset
         contadorMovimento = 0
+        alert('Você venceu!!!')
     }
 }
 
@@ -74,4 +78,18 @@ function checkWin () {
 // pop up vitoria
 // função reset - appendChild em todas as divs na torre um, e zerar contadores --- e criar botao reset + eventlistener
 
+const resetar = document.getElementById("reset")
+resetar.addEventListener('click', queroResetar)
+
+function queroResetar (){
+    contadorMovimento = 0
+    displayContadorMov.innerHTML = 'Contador de Movimento: 0'
+    torre1.appendChild(disco3) 
+    torre1.appendChild(disco2)
+    torre1.appendChild(disco1)
+
+    alert("Tente novamente")
+
+    console.log("Resetou")
+}
 

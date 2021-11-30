@@ -32,3 +32,11 @@ for(let i = 0; i < arrDisco.length; i++){
     criarDisco(arrDisco[i])
 }
 
+//Reset
+const footer = document.createElement('footer')
+document.body.appendChild(footer)
+
+const buttonResetar = document.createElement('button')
+buttonResetar.id = "reset"
+buttonResetar.innerText = "Resetar"
+footer.appendChild(buttonResetar)

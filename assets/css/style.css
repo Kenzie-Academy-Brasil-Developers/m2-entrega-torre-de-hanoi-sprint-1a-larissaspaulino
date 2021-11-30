@@ -1,25 +1,40 @@
+h1 {
+  font-size: 60px;
+  margin: 10px auto;
+  text-align: center;
+}
+
 main {
   width: 80%;
   border: 1px solid black;
   margin: 10px auto;
   display: flex;
+  flex-wrap: wrap;
 }
 section {
   display: flex;
   flex-direction: column-reverse;
   align-items: center;
   height: 300px;
+  width: 32%;
+  flex-grow: 100%;
+  margin: 0 auto;
+  position: relative;
+}
+section::after {
+  height: 300px;
+  color: black;
+}
+aside {
+  margin: 0 10%;
 }
 #torre1 {
-  width: 33.3%;
   border: 1px solid pink;
 }
 #torre2 {
-  width: 33.3%;
   border: 1px solid yellow;
 }
 #torre3 {
-  width: 33.3%;
   border: 1px solid green;
 }
 #disco1 {
@@ -39,4 +54,8 @@ section {
   height: 50px;
   background-color: black;
   border-radius: 10px;
+}
+
+footer {
+  text-align: center;
 }
