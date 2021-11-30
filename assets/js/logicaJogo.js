@@ -88,10 +88,10 @@ resetar.addEventListener('click', queroResetar)
 function queroResetar (){
     contadorMovimento = 0
     displayContadorMov.innerHTML = 'Contador de Movimento: 0'
+    // torre1.appendChild(disco5) 
+    // torre1.appendChild(disco4) 
     torre1.appendChild(disco3) 
     torre1.appendChild(disco2)
     torre1.appendChild(disco1)
 }
-
-
 
