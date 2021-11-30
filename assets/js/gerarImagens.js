@@ -1,29 +1,34 @@
 const container = document.getElementById('container');
 //Torres
-const primeiraTorre = document.createElement('section');
-primeiraTorre.id = "torre1";
-container.appendChild(primeiraTorre);
+const arrTorres = ["torre1", "torre2", "torre3"]
 
-const segundaTorre = document.createElement('section');
-segundaTorre.id = "torre2";
-container.appendChild(segundaTorre);
+function criarTorres (torreID){
 
-const terceiraTorre = document.createElement('section');
-terceiraTorre.id = "torre3";
-container.appendChild(terceiraTorre);
+    const torre = document.createElement('section')
 
+    torre.id = torreID
+
+    const hanoi = document.getElementById('container')
+
+    hanoi.appendChild(torre)
+}
+for(let i = 0; i < arrTorres.length; i++){
+    criarTorres(arrTorres[i])
+}
 // Discos
-const discoTres = document.createElement('div')
-discoTres.id = "disco3"
-primeiraTorre.appendChild(discoTres)
+const arrDisco = ["disco3", "disco2", "disco1"]
 
-const discoDois = document.createElement('div')
-discoDois.id = "disco2"
-primeiraTorre.appendChild(discoDois)
+function criarDisco(id){
 
-const discoUm = document.createElement('div')
-discoUm.id = "disco1"
-primeiraTorre.appendChild(discoUm)
+    const disco = document.createElement('div')
+    disco.id = id
 
+    const torre = document.getElementById("torre1")
+   
+    torre.appendChild(disco)
+}
 
+for(let i = 0; i < arrDisco.length; i++){
+    criarDisco(arrDisco[i])
+}
 
