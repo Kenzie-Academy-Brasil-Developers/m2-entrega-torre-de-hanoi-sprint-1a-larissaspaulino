@@ -7,25 +7,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="assets/css/reset.css" type="text/css">
     <link rel="stylesheet" href="assets/css/style.css" type="text/css">
-    <title>Torre de Honei</title>
+    <title>Torre de Hanoi</title>
 </head>
 
 <body>
-
+    <header id="topo">
+        <h1>
+            Torre de Hanoi
+        </h1>
+        <ul id="ulButtons"></ul>
+    </header>
     <main id="container">
-        <!-- <section id="torre1">
-        </section>
-        <div id="disco3"></div> ----- maior
-        
-        <section id="torre2">
-            <div id="disco2"></div>
-    </section>
-    
-    <section id="torre3">
-        
-        <div id="disco1"></div> ---- menor
-    </section>  -->
     </main>
+
+    <footer></footer>
+
+    <div id="popUpVitoria" class="hidden popUp">
+        <div id="quadrado">
+        <p>Parabéns, você venceu!</p>
+        <button id="botaoSair">x</button>
+        </div>
+    </div>
 
     <script src="assets/js/gerarImagens.js"></script>
     <script src="assets/js/logicaJogo.js"></script>
