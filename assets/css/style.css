@@ -4,6 +4,21 @@ h1 {
   text-align: center;
 }
 
+.hidden { 
+  display: none;
+}
+
+.popUp {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-color: red;
+}
+
+.quadrado {
+  background: #FFF;
+}
+
 main {
   width: 80%;
   border: 1px solid black;
