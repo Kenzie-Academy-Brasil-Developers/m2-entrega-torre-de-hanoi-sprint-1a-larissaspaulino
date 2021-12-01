@@ -16,8 +16,8 @@ function criarTorres (torreID){
 
 arrTorres.forEach(criarTorres)
 // Discos
-// const arrDisco = ["disco5","disco4","disco3", "disco2", "disco1"] //É preciso tirar o comentário disso.
-const arrDisco = ["disco3", "disco2", "disco1"] //É preciso comentar isso.
+const arrDisco = ["disco5","disco4","disco3", "disco2", "disco1"] //É preciso tirar o comentário disso.
+// const arrDisco = ["disco3", "disco2", "disco1"] //É preciso comentar isso.
 
 function criarDisco(discoID){
 
@@ -28,7 +28,7 @@ function criarDisco(discoID){
    
     torre.appendChild(disco)
 }
-arrDisco.forEach(criarDisco) //É preciso comentar isso para descomentar as funções.
+//arrDisco.forEach(criarDisco) //É preciso comentar isso para descomentar as funções.
 
 //Reset
 const footer = document.createElement('footer')
@@ -42,11 +42,11 @@ footer.appendChild(buttonResetar)
 //Dificuldades
 const dificuldades = ["easy", "normal", "hard"]
 
-function criarDificuldades (dificuldades){
+function criarDificuldades (batatas){
 
     const buttonsDificulty = document.createElement("button")
-    buttonsDificulty.innerText = dificuldades
-    buttonsDificulty.id = dificuldades
+    buttonsDificulty.innerText = batatas
+    buttonsDificulty.id = batatas
 
     const niveisCriados = document.getElementById("topo")
 
@@ -56,7 +56,8 @@ dificuldades.forEach(criarDificuldades)
  
 //Dificuldades - Funções para criar os jogos com base nos botões de dificuldades.
 
-// function criarJogoFacil (event){
+// function criarJogoFacil (evento){
+
 //     for(let i = 0; i < 3; i++){
 //         criarDisco(arrDisco[i])
 //     }
@@ -85,3 +86,8 @@ dificuldades.forEach(criarDificuldades)
 // const jogoDificil = document.getElementById('hard')
 
 // jogoDificil.addEventListener('click', criarJogoDificil)
+
+// function criarJogo (nivelDificuldade) {
+
+// }
+
