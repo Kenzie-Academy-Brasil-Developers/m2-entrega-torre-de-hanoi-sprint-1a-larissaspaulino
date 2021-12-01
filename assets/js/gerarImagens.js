@@ -1,6 +1,6 @@
 const container = document.getElementById('container');
-const ulButtons = document.getElementById('ulButtons')
-//Torres
+const ulButtons = document.getElementById('ulButtons');
+
 const arrTorres = ["torre1", "torre2", "torre3"]
 
 function criarTorres (torreID){
@@ -13,11 +13,11 @@ function criarTorres (torreID){
 
     hanoi.appendChild(torre)
 }
-
 arrTorres.forEach(criarTorres)
+
 // Discos
-// const arrDisco = ["disco5","disco4","disco3", "disco2", "disco1"] //É preciso tirar o comentário disso.
-const arrDisco = ["disco3", "disco2", "disco1"] //É preciso comentar isso.
+const arrDisco = ["disco5","disco4","disco3", "disco2", "disco1"] //É preciso tirar o comentário disso.
+// const arrDisco = ["disco3", "disco2", "disco1"] //É preciso comentar isso.
 
 function criarDisco(discoID){
 
@@ -28,7 +28,7 @@ function criarDisco(discoID){
    
     torre.appendChild(disco)
 }
-arrDisco.forEach(criarDisco) //É preciso comentar isso para descomentar as funções.
+// arrDisco.forEach(criarDisco) //É preciso comentar isso para descomentar as funções.
 
 //Reset
 const footer = document.createElement('footer')
@@ -55,33 +55,45 @@ function criarDificuldades (dificuldades){
 dificuldades.forEach(criarDificuldades)
  
 //Dificuldades - Funções para criar os jogos com base nos botões de dificuldades.
+let discoMenorVitoria = ''
 
-// function criarJogoFacil (event){
-//     for(let i = 0; i < 3; i++){
-//         criarDisco(arrDisco[i])
-//     }
+function criarJogoFacil (event){
+    for(let i = 0; i < 3; i++){
+        criarDisco(arrDisco[i])
+    }
+    quantidadeDiscos = 3
+    discoMenorVitoria = "disco3"
+    console.log(quantidadeDiscos)
+    console.log(discoMenorVitoria)
+}
 
-// }
+const jogoFacil = document.getElementById('easy')
 
-// const jogoFacil = document.getElementById('easy')
+jogoFacil.addEventListener('click', criarJogoFacil)
+//
+function criarJogoMedio (event){
+    for(let i = 0; i < 4; i++){
+        criarDisco(arrDisco[i])
+    }
+    quantidadeDiscos = 4
+    discoMenorVitoria = "disco2"
+    console.log(quantidadeDiscos)
+    console.log(discoMenorVitoria)
+}
 
-// jogoFacil.addEventListener('click', criarJogoFacil)
-// //
-// function criarJogoMedio (event){
-//     for(let i = 0; i < 4; i++){
-//         criarDisco(arrDisco[i])
-//     }
-// }
+const jogoMedio = document.getElementById('normal')
 
-// const jogoMedio = document.getElementById('normal')
+jogoMedio.addEventListener('click', criarJogoMedio)
+//
+function criarJogoDificil (event){
+    for(let i = 0; i < arrDisco.length; i++){
+        criarDisco(arrDisco[i])
+    }
+    quantidadeDiscos = 5
+    discoMenorVitoria = "disco1"
+    console.log(quantidadeDiscos)
+    console.log(discoMenorVitoria)
+}
+const jogoDificil = document.getElementById('hard')
 
-// jogoMedio.addEventListener('click', criarJogoMedio)
-// //
-// function criarJogoDificil (event){
-//     for(let i = 0; i < arrDisco.length; i++){
-//         criarDisco(arrDisco[i])
-//     }
-// }
-// const jogoDificil = document.getElementById('hard')
-
-// jogoDificil.addEventListener('click', criarJogoDificil)
+jogoDificil.addEventListener('click', criarJogoDificil)

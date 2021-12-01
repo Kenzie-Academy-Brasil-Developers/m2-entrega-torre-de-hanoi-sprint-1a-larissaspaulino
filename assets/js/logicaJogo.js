@@ -15,6 +15,7 @@ let contadorMovimento = 0
 let contadorChildElem = 0
 
 let torre = 0
+let quantidadeDiscos = 0
 
 let torreOrigem = 0
 let discoOrigem = 0
@@ -64,9 +65,9 @@ function moverDiscoDeDiv () {
 }
 
 function checkWin () {
-    let discoIdTres = torreDestino.firstElementChild.getAttribute('id') //maior
-    let discoIdUm = torreDestino.lastElementChild.getAttribute('id')
-    if (contadorChildElem === 3 && discoIdTres === 'disco3' && discoIdUm === 'disco1' && torreDestino.getAttribute('id') !== 'torre1') {
+    let ultimoDisco = torreDestino.firstElementChild.getAttribute('id') //maior
+    let primeiroDisco = torreDestino.lastElementChild.getAttribute('id')
+    if (contadorChildElem === quantidadeDiscos && ultimoDisco === 'disco5' && primeiroDisco === discoMenorVitoria && torreDestino.getAttribute('id') !== 'torre1') {
         divPopUp.classList.remove('hidden')
         divPopUp.classList.add('popUp')
         contadorClique = 0 // funcao reset
@@ -88,8 +89,8 @@ resetar.addEventListener('click', queroResetar)
 function queroResetar (){
     contadorMovimento = 0
     displayContadorMov.innerHTML = 'Contador de Movimento: 0'
-    // torre1.appendChild(disco5) 
-    // torre1.appendChild(disco4) 
+    torre1.appendChild(disco5) 
+    torre1.appendChild(disco4) 
     torre1.appendChild(disco3) 
     torre1.appendChild(disco2)
     torre1.appendChild(disco1)
