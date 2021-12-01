@@ -1,8 +1,17 @@
 body {
   line-height: 2;
 }
+
+.background {
+  background: url('giphy.gif') repeat center center fixed;
+    background-size: cover;
+    height: auto;
+    padding:0;
+    margin:0;
+}
+
 h1 {
-  font-size: 40px;
+  font-size: 2.5rem;
   margin: 10px auto;
   text-align: center;
   text-decoration: underline;
@@ -23,6 +32,7 @@ h1 {
 #normal,
 #hard {
   border-radius: 10px;
+  cursor: pointer;
 }
 #ulButtons {
   display: flex;
@@ -170,7 +180,7 @@ footer {
 }
 @media screen and (min-width: 768px) {
   h1 {
-    font-size: 48px;
+    font-size: 3rem;
   }
   aside {
     font-size: 28px;
@@ -187,7 +197,7 @@ footer {
 }
 @media screen and (min-width: 1439px) {
   h1 {
-    font-size: 68px;
+    font-size: 4rem;
   }
   aside {
     font-size: 32px;
