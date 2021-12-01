@@ -4,78 +4,68 @@ const botaoSair = document.getElementById('botaoSair')
 const topo = document.getElementById('topo')
 
 
-const displayContadorMov = document.createElement('aside')
-displayContadorMov.innerText = 'Contador de Movimento: 0'
-topo.appendChild(displayContadorMov)
-
-let contadorClique = 0
+let contadorClique = true
 let contadorMovimento = 0
 let contadorChildElem = 0
 
 let quantidadeDiscos = 0
 
+let torre = 0
 let torreOrigem = 0
 let discoOrigem = 0
 let larguraDiscoOrigem = 0
-
-let torre = 0
-
 let torreDestino = 0
 let discoDestino = 0
 let larguraDiscoDestino = 0
 
 function torreClicada(e) {
     let torre = e.target.closest('section')
-    console.log(torre)
-    contadorClique++
-    console.log(contadorClique)
     torreOrigemouDestino(torre)
 }
 
 containerTorres.addEventListener('click', torreClicada)
 
 function torreOrigemouDestino(torre) {
-    if (contadorClique % 2 !== 0) {
+    if (contadorClique) {
         torreOrigem = torre
         discoOrigem = torreOrigem.lastElementChild
+        contadorClique = false
     } else {
         torreDestino = torre
         discoDestino = torreDestino.lastElementChild
-        console.log(torreDestino)
-        moverDiscoDeDiv(torreDestino)
+        moverDiscoDeDiv()
         checkWin()
     }
 }
 
-
-function moverDiscoDeDiv(torreDestino) {
-    console.log(torreDestino)
+function moverDiscoDeDiv() {
     if (discoDestino === null) {
         torreDestino.appendChild(discoOrigem)
         contadorChildElem = torreDestino.childElementCount
         contadorMovimento++
         displayContadorMov.innerHTML = `Contador de Movimento: ${contadorMovimento}`
+        contadorClique = true
     } else if (discoOrigem.clientWidth < discoDestino.clientWidth) {
         torreDestino.appendChild(discoOrigem)
         contadorChildElem = torreDestino.childElementCount
         contadorMovimento++
         displayContadorMov.innerHTML = `Contador de Movimento: ${contadorMovimento}`
+        contadorClique = true
     }
 }
 
 function checkWin() {
-    let ultimoDisco = torreDestino.firstElementChild.getAttribute('id') //maior
+    let ultimoDisco = torreDestino.firstElementChild.getAttribute('id') 
     let primeiroDisco = torreDestino.lastElementChild.getAttribute('id')
     if (contadorChildElem === quantidadeDiscos && ultimoDisco === 'disco5' && primeiroDisco === discoMenorVitoria && torreDestino.getAttribute('id') !== 'torre1') {
         divPopUp.classList.remove('hidden')
         divPopUp.classList.add('popUp')
         document.body.classList.add('background')
-        contadorClique = 0 // funcao reset
-        contadorMovimento = 0
+        queroResetar()
     }
 }
 
-//button sair 
+//button sair do popUp vitoria
 function fecharPoUp() {
     divPopUp.classList.add('hidden')
     divPopUp.classList.remove('popUp')
@@ -88,6 +78,7 @@ const resetar = document.getElementById("reset")
 resetar.addEventListener('click', queroResetar)
 
 function queroResetar() {
+    contadorClique = true
     contadorMovimento = 0
     displayContadorMov.innerHTML = 'Contador de Movimento: 0'
     torre1.appendChild(disco5)
