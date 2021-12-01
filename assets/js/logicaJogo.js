@@ -1,10 +1,10 @@
-const containerTorres = document.getElementById('container')
-const divPopUp = document.getElementById('popUpVitoria')
-const botaoSair = document.getElementById('botaoSair')
-const topo = document.getElementById('topo')
-const torreUm = document.getElementById('torre1')
-const torreDois = document.getElementById('torre2')
-const torreTres = document.getElementById('torre3')
+const containerTorres   = document.getElementById('container')
+const divPopUp          = document.getElementById('popUpVitoria')
+const botaoSair         = document.getElementById('botaoSair')
+const topo              = document.getElementById('topo')
+const torreUm           = document.getElementById('torre1')
+const torreDois         = document.getElementById('torre2')
+const torreTres         = document.getElementById('torre3')
 
 const displayContadorMov = document.createElement('aside')
 displayContadorMov.innerText = 'Contador de Movimento: 0'
@@ -16,6 +16,7 @@ let contadorChildElem = 0
 
 let torre = 0
 let quantidadeDiscos = 0
+let discoMenorVitoria = ''
 
 let torreOrigem = 0
 let discoOrigem = 0
@@ -52,9 +53,7 @@ function torreOrigemouDestino() {
         moverDiscoDeDiv()
         checkWin()
     }
-    
 }
-
 function moverDiscoDeDiv () {
     if (larguraDiscoOrigem < larguraDiscoDestino || torreDestino.childElementCount === 0) {
         torreDestino.appendChild(discoOrigem)
@@ -63,7 +62,6 @@ function moverDiscoDeDiv () {
         displayContadorMov.innerHTML= `Contador de Movimento: ${contadorMovimento}`
    }
 }
-
 function checkWin () {
     let ultimoDisco = torreDestino.firstElementChild.getAttribute('id') //maior
     let primeiroDisco = torreDestino.lastElementChild.getAttribute('id')
@@ -74,7 +72,6 @@ function checkWin () {
         contadorMovimento = 0
     }
 }
-
 //button sair 
 function fecharPoUp() {
     divPopUp.classList.add('hidden')
@@ -83,8 +80,7 @@ function fecharPoUp() {
 
 botaoSair.addEventListener('click', fecharPoUp)
 
-const resetar = document.getElementById("reset")
-resetar.addEventListener('click', queroResetar)
+
 
 function queroResetar (){
     contadorMovimento = 0
@@ -95,4 +91,5 @@ function queroResetar (){
     torre1.appendChild(disco2)
     torre1.appendChild(disco1)
 }
-
+const resetar = document.getElementById("reset")
+resetar.addEventListener('click', queroResetar)
