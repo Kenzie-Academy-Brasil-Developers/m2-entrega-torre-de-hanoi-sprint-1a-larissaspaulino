@@ -26,10 +26,11 @@ function criarDisco(discoID){
 
     const disco     = document.createElement('div')
     disco.id        = discoID
-    const torre     = document.getElementById("torre1")
-   
+    const torre     = document.getElementById("torre1")   
     torre.appendChild(disco)
 }
+
+
 function criarDificuldades (dificuldades){
 
     const buttonsDificulty      = document.createElement("button")
@@ -43,10 +44,17 @@ function criarDificuldades (dificuldades){
 dificuldades.forEach(criarDificuldades)
 
 function criarJogoFacil (event){
-    
     const removerDiscos = document.getElementById("torre1")
     while(removerDiscos.firstChild){
         removerDiscos.removeChild(removerDiscos.firstChild)
+    }
+    const removerDiscos2 = document.getElementById("torre2")
+    while(removerDiscos2.firstChild){
+        removerDiscos2.removeChild(removerDiscos2.firstChild)
+    }
+    const removerDiscos3 = document.getElementById("torre3")
+    while(removerDiscos3.firstChild){
+        removerDiscos3.removeChild(removerDiscos3.firstChild)
     }
     for(let i = 0; i < 3; i++){
         criarDisco(arrDisco[i])
@@ -61,6 +69,14 @@ function criarJogoMedio (event){
     while(removerDiscos.firstChild){
         removerDiscos.removeChild(removerDiscos.firstChild)
     }
+    const removerDiscos2 = document.getElementById("torre2")
+    while(removerDiscos2.firstChild){
+        removerDiscos2.removeChild(removerDiscos2.firstChild)
+    }
+    const removerDiscos3 = document.getElementById("torre3")
+    while(removerDiscos3.firstChild){
+        removerDiscos3.removeChild(removerDiscos3.firstChild)
+    }
     for(let i = 0; i < 4; i++){
         criarDisco(arrDisco[i])
     }
@@ -73,12 +89,21 @@ function criarJogoDificil (event){
     while(removerDiscos.firstChild){
         removerDiscos.removeChild(removerDiscos.firstChild)
     }
+    const removerDiscos2 = document.getElementById("torre2")
+    while(removerDiscos2.firstChild){
+        removerDiscos2.removeChild(removerDiscos2.firstChild)
+    }
+    const removerDiscos3 = document.getElementById("torre3")
+    while(removerDiscos3.firstChild){
+        removerDiscos3.removeChild(removerDiscos3.firstChild)
+    }
     for(let i = 0; i < arrDisco.length; i++){
         criarDisco(arrDisco[i])
     }
     quantidadeDiscos    = 5
     discoMenorVitoria   = "disco1"
 }
+
 
 
 const jogoFacil = document.getElementById('easy')

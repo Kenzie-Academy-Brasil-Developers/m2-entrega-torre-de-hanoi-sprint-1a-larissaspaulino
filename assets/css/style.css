@@ -32,6 +32,7 @@ h1 {
 #normal,
 #hard {
   border-radius: 10px;
+  cursor: pointer;
 }
 #ulButtons {
   display: flex;
