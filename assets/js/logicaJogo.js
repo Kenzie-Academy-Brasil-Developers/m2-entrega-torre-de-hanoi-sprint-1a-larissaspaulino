@@ -1,13 +1,10 @@
-const containerTorres = document.getElementById('container')
-const divPopUp = document.getElementById('popUpVitoria')
-const botaoSair = document.getElementById('botaoSair')
-const topo = document.getElementById('topo')
-const torreUm = document.getElementById('torre1')
-const torreDois = document.getElementById('torre2')
-const torreTres = document.getElementById('torre3')
-const botaoEasy = document.getElementById('easy')
-const botaoNormal = document.getElementById('normal')
-const botaoHard = document.getElementById('hard')
+const containerTorres   = document.getElementById('container')
+const divPopUp          = document.getElementById('popUpVitoria')
+const botaoSair         = document.getElementById('botaoSair')
+const topo              = document.getElementById('topo')
+const torreUm           = document.getElementById('torre1')
+const torreDois         = document.getElementById('torre2')
+const torreTres         = document.getElementById('torre3')
 
 const displayContadorMov = document.createElement('aside')
 displayContadorMov.innerText = 'Contador de Movimento: 0'
@@ -18,6 +15,8 @@ let contadorMovimento = 0
 let contadorChildElem = 0
 
 let torre = 0
+let quantidadeDiscos = 0
+let discoMenorVitoria = ''
 
 let torreOrigem = 0
 let discoOrigem = 0
@@ -63,10 +62,8 @@ function torreOrigemouDestino() {
         moverDiscoDeDiv()
         checkWin()
     }
-
 }
-
-function moverDiscoDeDiv() {
+function moverDiscoDeDiv () {
     if (larguraDiscoOrigem < larguraDiscoDestino || torreDestino.childElementCount === 0) {
         torreDestino.appendChild(discoOrigem)
         contadorChildElem = torreDestino.childElementCount
@@ -74,11 +71,10 @@ function moverDiscoDeDiv() {
         displayContadorMov.innerHTML = `Contador de Movimento: ${contadorMovimento}`
     }
 }
-
-function checkWin() {
-    let discoIdTres = torreDestino.firstElementChild.getAttribute('id') //maior
-    let discoIdUm = torreDestino.lastElementChild.getAttribute('id')
-    if (contadorChildElem === 3 && discoIdTres === 'disco3' && discoIdUm === 'disco1' && torreDestino.getAttribute('id') !== 'torre1') {
+function checkWin () {
+    let ultimoDisco = torreDestino.firstElementChild.getAttribute('id') //maior
+    let primeiroDisco = torreDestino.lastElementChild.getAttribute('id')
+    if (contadorChildElem === quantidadeDiscos && ultimoDisco === 'disco5' && primeiroDisco === discoMenorVitoria && torreDestino.getAttribute('id') !== 'torre1') {
         divPopUp.classList.remove('hidden')
         divPopUp.classList.add('popUp')
         document.body.classList.add('background')
@@ -86,7 +82,6 @@ function checkWin() {
         contadorMovimento = 0
     }
 }
-
 //button sair 
 function fecharPoUp() {
     divPopUp.classList.add('hidden')
@@ -96,23 +91,25 @@ function fecharPoUp() {
 
 botaoSair.addEventListener('click', fecharPoUp)
 
-const resetar = document.getElementById("reset")
-resetar.addEventListener('click', queroResetar)
-
-function queroResetar(evt) {
-
-    let buttonDificuldadeTag = evt.currentTarget
-    let buttonDificuldadeID = buttonDificuldadeTag.getAttribute('id')
-
+function queroResetar (){
     contadorMovimento = 0
     displayContadorMov.innerHTML = 'Contador de Movimento: 0'
-
-    torre1.appendChild(disco3)
-    torre1.appendChild(disco2)
-    torre1.appendChild(disco1)
-
-    // adcDisco(buttonDificuldadeID)
+    let buttonAtual = botaoAtual.getAttribute('id')
+        torre1.appendChild(disco5) 
+        torre1.appendChild(disco4) 
+        torre1.appendChild(disco3)
+    if(buttonAtual == "normal"){
+        torre1.appendChild(disco5) 
+        torre1.appendChild(disco4) 
+        torre1.appendChild(disco3)
+        torre1.appendChild(disco2)
+    }else if(buttonAtual == "hard"){
+        torre1.appendChild(disco5) 
+        torre1.appendChild(disco4) 
+        torre1.appendChild(disco3)
+        torre1.appendChild(disco2)
+        torre1.appendChild(disco1)
+    }
 }
-
-
-
+const resetar = document.getElementById("reset")
+resetar.addEventListener('click', queroResetar)
