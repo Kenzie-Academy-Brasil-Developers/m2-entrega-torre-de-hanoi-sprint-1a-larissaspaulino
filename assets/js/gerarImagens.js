@@ -10,6 +10,8 @@ buttonResetar.id        = "reset"
 buttonResetar.innerText = "Resetar"
 footer.appendChild(buttonResetar)
 
+let botaoAtual = 0
+
 function criarTorres (torreID){
 
     const torre     = document.createElement('section')
@@ -41,6 +43,7 @@ function criarDificuldades (dificuldades){
 dificuldades.forEach(criarDificuldades)
 
 function criarJogoFacil (event){
+    
     const removerDiscos = document.getElementById("torre1")
     while(removerDiscos.firstChild){
         removerDiscos.removeChild(removerDiscos.firstChild)
@@ -48,10 +51,12 @@ function criarJogoFacil (event){
     for(let i = 0; i < 3; i++){
         criarDisco(arrDisco[i])
     }
+
     quantidadeDiscos    = 3
     discoMenorVitoria   = "disco3"
 }
 function criarJogoMedio (event){
+    botaoAtual = event.target
     const removerDiscos = document.getElementById("torre1")
     while(removerDiscos.firstChild){
         removerDiscos.removeChild(removerDiscos.firstChild)
@@ -63,6 +68,7 @@ function criarJogoMedio (event){
     discoMenorVitoria   = "disco2"
 }
 function criarJogoDificil (event){
+    botaoAtual = event.target
     const removerDiscos = document.getElementById("torre1")
     while(removerDiscos.firstChild){
         removerDiscos.removeChild(removerDiscos.firstChild)
@@ -73,6 +79,7 @@ function criarJogoDificil (event){
     quantidadeDiscos    = 5
     discoMenorVitoria   = "disco1"
 }
+
 
 const jogoFacil = document.getElementById('easy')
 jogoFacil.addEventListener('click', criarJogoFacil)

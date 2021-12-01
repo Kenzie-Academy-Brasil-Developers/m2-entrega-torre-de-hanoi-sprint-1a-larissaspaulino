@@ -80,16 +80,25 @@ function fecharPoUp() {
 
 botaoSair.addEventListener('click', fecharPoUp)
 
-
-
 function queroResetar (){
     contadorMovimento = 0
     displayContadorMov.innerHTML = 'Contador de Movimento: 0'
-    torre1.appendChild(disco5) 
-    torre1.appendChild(disco4) 
-    torre1.appendChild(disco3) 
-    torre1.appendChild(disco2)
-    torre1.appendChild(disco1)
+    let buttonAtual = botaoAtual.getAttribute('id')
+        torre1.appendChild(disco5) 
+        torre1.appendChild(disco4) 
+        torre1.appendChild(disco3)
+    if(buttonAtual == "normal"){
+        torre1.appendChild(disco5) 
+        torre1.appendChild(disco4) 
+        torre1.appendChild(disco3)
+        torre1.appendChild(disco2)
+    }else if(buttonAtual == "hard"){
+        torre1.appendChild(disco5) 
+        torre1.appendChild(disco4) 
+        torre1.appendChild(disco3)
+        torre1.appendChild(disco2)
+        torre1.appendChild(disco1)
+    }
 }
 const resetar = document.getElementById("reset")
 resetar.addEventListener('click', queroResetar)
