@@ -58,11 +58,10 @@ dificuldades.forEach(criarDificuldades)
 function criarJogo(e) {
     botaoAtual = e.target
     let botaoId = botaoAtual.getAttribute('id')
-    
+
     if (botaoAtual.tagName === 'BUTTON') {
         contadorMovimento = 0
         displayContadorMov.innerHTML = `Contador de Movimento: ${contadorMovimento}`
-        
         
         const removerDiscos = document.getElementById("torre1")
         while (removerDiscos.firstChild) {
@@ -81,6 +80,7 @@ function criarJogo(e) {
             for (let i = 0; i < 3; i++) {
                 criarDisco(arrDisco[i])
             }
+           
             quantidadeDiscos = 3
             discoMenorVitoria = "disco3"
         } else if (botaoId === 'normal') {
