@@ -87,14 +87,12 @@ function criarJogo(e) {
             for (let i = 0; i < 4; i++) {
                 criarDisco(arrDisco[i])
             }
-            // contadorMovimento = 0
             quantidadeDiscos = 4
             discoMenorVitoria = "disco2"
         } else {
             for (let i = 0; i < arrDisco.length; i++) {
                 criarDisco(arrDisco[i])
             }
-            // contadorMovimento = 0
             quantidadeDiscos = 5
             discoMenorVitoria = "disco1"
         }

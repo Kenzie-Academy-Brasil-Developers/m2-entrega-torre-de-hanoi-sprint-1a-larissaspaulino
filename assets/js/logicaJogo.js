@@ -92,3 +92,9 @@ function queroResetar() {
     }
 
 }
+
+
+//ideias --- 
+// mostrar o contador de movimento no pop-up de vitoria
+// definir um limite de movimentos
+// definir um cronometro 
