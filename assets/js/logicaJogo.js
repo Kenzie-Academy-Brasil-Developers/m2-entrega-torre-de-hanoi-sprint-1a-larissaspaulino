@@ -3,11 +3,6 @@ const divPopUp = document.getElementById('popUpVitoria')
 const botaoSair = document.getElementById('botaoSair')
 const topo = document.getElementById('topo')
 
-
-let contadorClique = true
-let contadorMovimento = 0
-let contadorChildElem = 0
-
 let quantidadeDiscos = 0
 
 let torre = 0
@@ -26,16 +21,19 @@ function torreClicada(e) {
 containerTorres.addEventListener('click', torreClicada)
 
 function torreOrigemouDestino(torre) {
-    if (contadorClique) {
-        torreOrigem = torre
-        discoOrigem = torreOrigem.lastElementChild
-        contadorClique = false
-    } else {
-        torreDestino = torre
-        discoDestino = torreDestino.lastElementChild
-        moverDiscoDeDiv()
-        checkWin()
-    }
+        if (contadorClique) {
+            if (torre.childElementCount !== 0) {
+            torreOrigem = torre
+            discoOrigem = torreOrigem.lastElementChild
+            contadorClique = false
+            }
+        } else {
+            torreDestino = torre
+            discoDestino = torreDestino.lastElementChild
+            moverDiscoDeDiv()
+            
+            contadorClique = true
+        }
 }
 
 function moverDiscoDeDiv() {
@@ -44,14 +42,13 @@ function moverDiscoDeDiv() {
         contadorChildElem = torreDestino.childElementCount
         contadorMovimento++
         displayContadorMov.innerHTML = `Contador de Movimento: ${contadorMovimento}`
-        contadorClique = true
     } else if (discoOrigem.clientWidth < discoDestino.clientWidth) {
         torreDestino.appendChild(discoOrigem)
         contadorChildElem = torreDestino.childElementCount
         contadorMovimento++
         displayContadorMov.innerHTML = `Contador de Movimento: ${contadorMovimento}`
-        contadorClique = true
     }
+    checkWin()
 }
 
 function checkWin() {
